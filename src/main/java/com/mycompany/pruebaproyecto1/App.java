@@ -50,8 +50,8 @@ public class App {
                     break;
                 case "DEFUN_FACTORIAL":
                     factorialOperador(aux.substring(comando.length() + 1, aux.length()));
-                    System.out.println(factorialOperador(comando));
                     break;
+                
                 case "FORMAT_T":
                     formatOperador(aux.substring(comando.length() + 1, aux.length()));
                     break;
@@ -80,17 +80,23 @@ public class App {
         System.out.println("\t> " + dato);
     }
 
-    public int factorialOperador(String dato) {
-        dato = Integer.parseInt(dato.substring(1, dato.length() - 1));
-        System.out.println("\t> " + dato + "!");
-        if (dato<=1) {return 1;}
-        int res = dato* factorialRecursivo(dato-1);
-        return res;
+    public void factorialOperador(String dato) {
+        dato = dato.substring(1, dato.length() - 1);
+        int variable = factorial(Integer.valueOf(dato));
+        System.out.println("\t> " + variable + "!");
+        
     }
+    
+    private int factorial(int dato){
+        
+        if (dato<=1) {return 1;}
+        int res = dato* factorial(dato-1);
+        return res;
+    } 
 
     public void formatOperador(String dato) {
-        //String mensaje = obtenerMensaje(dato);
-        //dato = dato.substring(mensaje.length()+1);
+        String mensaje = obtenerMensaje(dato);
+        dato = dato.substring(mensaje.length()+3);
 
         dato = dato.substring(1, dato.length() - 1);
         String[] cadenaDescompuesta = dato.split(" ");
@@ -102,31 +108,31 @@ public class App {
                 aux = Integer.valueOf(cadenaDescompuesta[1]) + Integer.valueOf(cadenaDescompuesta[2]);
 
                 //System.out.println("\t> "+mensaje+" "+aux);
-                System.out.println("\t> " + aux);
+                System.out.println("\t> " + mensaje + " "+aux);
                 break;
 
             case "-":
 
                 aux = Integer.valueOf(cadenaDescompuesta[1]) - Integer.valueOf(cadenaDescompuesta[2]);
 
-                System.out.println("\t> " + aux);
+                System.out.println("\t> " + mensaje + " "+aux);
                 break;
 
             case "*":
                 aux = Integer.valueOf(cadenaDescompuesta[1]) * Integer.valueOf(cadenaDescompuesta[2]);
 
-                System.out.println("\t> " + aux);
+                System.out.println("\t> "+ mensaje + " "+aux);
                 break;
             case "/":
                 auxf = Integer.valueOf(cadenaDescompuesta[1]) / Integer.valueOf(cadenaDescompuesta[2]);
 
-                System.out.println("\t> " + auxf);
+                System.out.println("\t> " + mensaje + " "+auxf);
                 break;
 
             case "^":
                 auxf = (int) Math.pow(Integer.valueOf(cadenaDescompuesta[1]), Integer.valueOf(cadenaDescompuesta[2]));
 
-                System.out.println("\t> " + auxf);
+                System.out.println("\t> " + mensaje + " "+auxf);
                 break;
 
             default:
