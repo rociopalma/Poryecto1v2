@@ -1,3 +1,7 @@
+/* La clase app inizializa el intérprete, dejando que el usuario escriba el comando que desea interpretar. Identifica el comando 
+y manda a llamar la clase necesaria para interpretarlo.*/
+/*Github: https://github.com/rociopalma/Poryecto1v2*/
+
 package com.mycompany.pruebaproyecto1;
 
 import java.text.BreakIterator;
@@ -14,6 +18,8 @@ public class App {
         (new App()).init();
     }
 
+    /* Este metodo le aparece al usuario para simular un compilador, puede comenzar a escribir y  su comando se leerá para ser interpretado*/
+    
     public void init() {
         String enunciado = "";
         System.out.println("LISP COMPILER");
@@ -26,10 +32,11 @@ public class App {
             comandoEscritura(enunciado);
         }
 
-        /*String cadena ="(quote (Hola Mundo))";    
-        cadena ="(print (Hola Mundo))";  */
+        
     }//fin de init
 
+    /* Este metodo lee e identifica el comando escrito por el usuario, mandando a llamar las clases que necesita para interpretarlo
+    @param cadena es el comando que el usuario manda y se lee*/
     public void comandoEscritura(String cadena) {
         String aux = "";
 
@@ -87,7 +94,8 @@ public class App {
     }
 
 
-
+    /* Este metodo imprime los comandos que se pueden usar en este intérprete, al escribir mal un comando se imprime automáticamente o aparece al escribir 
+    el número 1*/
     public void comandosAceptados() {
         System.out.println("\tCOMANDOS ACEPTADOS");
         System.out.println("\t\t>(format_t " +"\"mensaje\"" + " (op.mat num1 num2))");
