@@ -90,7 +90,7 @@ public class App {
 
     public void comandosAceptados() {
         System.out.println("\tCOMANDOS ACEPTADOS");
-        System.out.println("\t\t>(format_t (op.mat num1 num2))");
+        System.out.println("\t\t>(format_t " +"\"mensaje\"" + " (op.mat num1 num2))");
         System.out.println("\t\t>(write (enunciado))");
         System.out.println("\t\t>(print (enunciado))");
         System.out.println("\t\t>(quote (enunciado))");
